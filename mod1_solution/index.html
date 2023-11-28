@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
-    <style>body { font-size: 1.3em; }</style>
-    <title>Name Calculator</title>
-  </head>
-  <body ng-app="NameCalculator">
-    <h1>Name Calculator</h1>
-    <div ng-controller="NameCaculatorController">
-      <div>
-        Your name:
-        <input type="text"
-          ng-model="name"
-          ng-keyup="displayNumeric();">
-      </div>
-      <div>Total Numeric value of person's name is: {{totalValue}}</div>
+
+<head>
+  <meta charset="utf-8">
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+  <style>
+    body {
+      font-size: xx-large;
+    }
+  </style>
+
+  <title>Lunch Checker</title>
+</head>
+
+<body ng-app="LunchCheck">
+  <h1>Lunch Checker</h1>
+  <div ng-controller="LunchCheckController">
+    <div>
+      Enter the items in your lunch seperated by a comma. <br><br>
+      <input type="text" ng-model="lunchItems">
+      <button ng-click="tooMuchCheck()">Check If Too Much</button>
     </div>
-  </body>
+    <br>
+    <div>{{message}}</div>
+
+  </div>
+</body>
+
 </html>

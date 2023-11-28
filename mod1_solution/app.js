@@ -1,28 +1,35 @@
 (function () {
-'use strict';
+  'use strict';
 
-angular.module('NameCalculator', [])
+  angular.module('LunchCheck', [])
 
-.controller('NameCaculatorController', function ($scope) {
-  $scope.name = "";
-  $scope.totalValue = 0;
+    .controller('LunchCheckController', LunchCheckController);
 
-  $scope.displayNumeric = function () {
-    var totalNameValue = calculatNumericForString($scope.name);
-    $scope.totalValue = totalNameValue;
+  LunchCheckController.$inject = ['$scope'];
+
+  function LunchCheckController($scope) {
+
+    $scope.lunchItems = "";
+    $scope.message = "";
+
+    $scope.tooMuchCheck = function () {
+
+      if ($scope.lunchItems != "") {
+        var myLunch = $scope.lunchItems.split(",");
+        var myLunchCount = myLunch.length;
+
+        if (myLunchCount <= 3) {
+          $scope.message = "Enjoy!"
+        } else $scope.message = "Too much!"
+
+
+      } else $scope.message = "Please enter data first"
+
+
+
+    };
+
   };
-
-
-  function calculatNumericForString(string) {
-    var totalStringValue = 0;
-    for (var i = 0; i < string.length; i++) {
-      totalStringValue += string.charCodeAt(i);
-    }
-
-    return totalStringValue;
-  }
-
-});
 
 
 })();
